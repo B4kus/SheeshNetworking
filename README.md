@@ -5,7 +5,7 @@ Welcome to Sheesh Framework, where networking becomes as easy as saying "Sheesh!
 ## Features
 
 - Actual network requests with `SheeshNetworking`.
-- Configurable networking behavior using `SheeshNetworkingConfiguration` and `SheeshMockNetworkingConfiguration`.
+- Configurable networking behavior using `SheeshNetworkingConfigurationProtocol` and `SheeshMockNetworkingConfigurationProtocol`.
 - Clean and easy-to-use protocols for defining endpoints.
 
 ## Example Usages

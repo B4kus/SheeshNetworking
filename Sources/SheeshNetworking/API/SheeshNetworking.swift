@@ -19,12 +19,12 @@ public final class SheeshNetworking {
     public let configuration: SheeshNetworkingConfigurationProtocol
     
     /// The configuration for mock network requests.
-    public let mockConfiguration: SheeshMockNetworkingConfigurationProtocol
+    public let mockConfiguration: SheeshMockNetworkingConfigurationProtocol?
     
     // MARK: - Properties
     
     private let sheeshNetwork: SheeshNetworkingProtocol
-    private let sheeshMockNetwork: SheeshNetworkingProtocol?
+    private let sheeshMockNetwork: SheeshNetworkingProtocol
     
     // MARK: - Initialize
     
@@ -35,7 +35,7 @@ public final class SheeshNetworking {
         - configuration: The configuration for actual network requests.
         - mockConfiguration: The configuration for mock network requests.
      */
-    public init(configuration: SheeshNetworkingConfigurationProtocol, mockConfiguration: SheeshMockNetworkingConfigurationProtocol) {
+    public init(configuration: SheeshNetworkingConfigurationProtocol, mockConfiguration: SheeshMockNetworkingConfigurationProtocol? = nil) {
         self.configuration = configuration
         self.mockConfiguration = mockConfiguration
         self.sheeshNetwork = SheeshNetwork(configuration: configuration)
@@ -51,10 +51,8 @@ public final class SheeshNetworking {
      - Returns: A publisher that emits the output data or an error.
      */
     public func request<ConcreteEndpoint: Endpoint>(_ endpoint: ConcreteEndpoint) -> AnyPublisher<ConcreteEndpoint.Output, Error> {
-        if endpoint.shouldUseMock || mockConfiguration.useOnlyMock {
-            guard let sheeshMockNetwork = sheeshMockNetwork else {
-                return Fail(error: NetworkStackError.missingMockServiceConfiguration).eraseToAnyPublisher()
-            }
+        
+        if endpoint.shouldUseMock || configuration.useOnlyMockService {
             return sheeshMockNetwork.request(endpoint)
         } else {
             return sheeshNetwork.request(endpoint)

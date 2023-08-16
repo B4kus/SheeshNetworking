@@ -27,5 +27,5 @@ public protocol Endpoint {
     var queryItems: [URLQueryItem]? { get }
     
     /// A flag indicating whether mock data should be used for testing purposes.
-    var shouldUseMock: Bool { get set }
+    var shouldUseMock: Bool { get }
 }

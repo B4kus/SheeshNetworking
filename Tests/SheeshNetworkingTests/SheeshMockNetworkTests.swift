@@ -17,10 +17,6 @@ class SheeshMockNetworkTests: XCTestCase {
             return Bundle.main
         }
         
-        var useOnlyMock: Bool {
-            return true
-        }
-        
         static var defaultMockFileExtension: String? {
             return "json"
         }
@@ -60,7 +56,6 @@ class SheeshMockNetworkTests: XCTestCase {
             }
             
             var shouldUseMock: Bool
-            
             
             var mockFilename: String? { "test" }
             

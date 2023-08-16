@@ -109,6 +109,6 @@ Found a bug? Got an enchanting feature idea? We'd love to have you onboard! Chec
 
 This project is licensed under the MIT License.
 
-## Pssst!
+## Psssst! 😶‍🌫️
 
 Pssst! Don't forget to say "Sheesh!" when your networking code just works like magic! ✨🪄

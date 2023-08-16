@@ -22,4 +22,7 @@ public protocol SheeshNetworkingConfigurationProtocol {
     
     /// The default headers to be included in network requests.
     var defaultHeaders: [String: String]? { get }
+    
+    /// A flag indicating whether to use only mock data for requests.
+    var useOnlyMockService: Bool { get }
 }

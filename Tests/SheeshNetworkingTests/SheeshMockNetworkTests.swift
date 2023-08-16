@@ -61,7 +61,6 @@ class SheeshMockNetworkTests: XCTestCase {
             
             var shouldUseMock: Bool
             
-            
             var mockFilename: String? { "test" }
             
             var mockExtension: String? { "json" }

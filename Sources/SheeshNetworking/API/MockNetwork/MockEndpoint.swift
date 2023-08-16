@@ -18,5 +18,6 @@ public protocol MockEndpoint: Endpoint {
     /// The file extension of the mock data file (e.g., "json", "xml").
     var mockExtension: String? { get }
     
+    /// The string contains json mock.
     var plainMockJson: String? { get }
 }

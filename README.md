@@ -38,7 +38,7 @@ extension Exmaple: Endpoint {
     
      var path: String {
         switch self {
-        case .popularCocktails: return "/api/example"
+        case .exmaple: return "/api/example"
         }
     }
     
@@ -89,7 +89,7 @@ let networking = SheeshNetworking(configuration: ExampleConfigurationProvider())
 5. Make network requests with sheesh!:
 
 ```swift
-let endpoint = Exmaple.example
+let endpoint = ExmapleEndpoint.example
 networking.request(endpoint)
     .sink(receiveCompletion: { completion in
         // Handle completion
